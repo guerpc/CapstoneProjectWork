@@ -117,12 +117,15 @@ void ticTacToe::PlayInput()
 
 ///////////need help getting the teamMark to appear on the board
 
-void ticTacToe::TogglePlayer() {
+void ticTacToe::TogglePlayer(vector<Team>loadingTeams) {
     if (teamMark == "X") {
         teamMark = "O";
+        cout << loadingTeams.at(1).toString();
     }
     else {
         teamMark = "X";
+        cout << loadingTeams.at(0).toString();
+
     }
 }
 
@@ -187,22 +190,23 @@ string ticTacToe::TheRowCondition() {
 
 
 
-void ticTacToe::runTicTacToe() {
+void ticTacToe::runTicTacToe(vector<Team>loadingTeams) {
     int team;
-
     cout << "Welcome to Tic-Tac-Toe!!" << endl;
     system("CLS");
     while (1) {
         setBoard();
         cout << "Board constructed..." << endl;
         PlayInput();
-        TogglePlayer();
+        TogglePlayer(loadingTeams);
         if (TheRowCondition() == "X") {
             cout << "X wins!";
+            cout << loadingTeams.at(0).toString();
             break;
         }
         else if (TheRowCondition() == "O") {
             cout << "O wins!";
+            cout << loadingTeams.at(1).toString();
             break;
         }
         // setMove();//needs arguments to pass, its a setter
@@ -217,7 +221,6 @@ ticTacToe::ticTacToe()
 {
     teamMark = "X";
     win = "noWin";
-
     input = 0;
     team = 1;
 }

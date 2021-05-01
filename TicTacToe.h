@@ -1,10 +1,10 @@
 #pragma once
-//#include "Game.h"
+#include "Game.h"
 #include <iostream>
 #include <vector>
 using namespace std;
 
-class ticTacToe //: public Game
+class ticTacToe : public Game
 {
 
 
@@ -40,10 +40,9 @@ public:
     string TheRowCondition();
     void toWin();
     void setBoard();
-    void TogglePlayer();
-    void runTicTacToe();
+    void TogglePlayer(vector<Team>loadingTeams);
+    void runTicTacToe(vector<Team>loadingTeams);
     void PlayInput();
     ticTacToe();
 
-    void printShow();
 };

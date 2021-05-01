@@ -305,9 +305,6 @@ void pickTeamsAndPlayers(vector<Team>& teamsOneTwo)
 /// ############################################
 void runHangMan()
 {
-    Player tempPlayer;
-    string userInput;
-    vector<Player> teamPlayers;
     vector <Team> allTeamsHolder;
 
     int pick;
@@ -494,8 +491,24 @@ void pressOneToContinue()
 /// ############################################
 void runningTicTacToe()
 {
+        vector <Team> allTeamsHolder;
+
+    int pick;
+    cout << "Enter 1 to pick teams or 2 to load teams." << endl;
+    cin >> pick;
+
+    if (pick == 1)
+    {
+        pickTeamsAndPlayers(allTeamsHolder);
+
+    }
+    else if (pick == 2)
+    {
+        loadDataBase(allTeamsHolder);
+    }
+
     ticTacToe t1;
-    t1.runTicTacToe();
+    t1.runTicTacToe(allTeamsHolder);
     pressOneToContinue();
     GamesSubMenu();
 }
