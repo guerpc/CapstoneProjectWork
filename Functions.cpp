@@ -76,7 +76,6 @@ void ShowMenu()
         GamesSubMenu();
         break;
     case 3:
-        cout << "case 4" << endl;
         system("CLS");
         break;
     default:
