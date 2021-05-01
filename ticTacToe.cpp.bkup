@@ -1,0 +1,180 @@
+#include "TicTacToe.h"
+#include "Game.h"
+#include<iostream>
+using namespace std;
+char ticTacToe::getTeamMark()
+{
+    return teamMark;
+}
+void ticTacToe::setTeamMark(char SettingMark)
+{
+    teamMark = SettingMark;
+}
+ticTacToe::ticTacToe()
+{
+    teamMark = 'X';
+}
+void ticTacToe::setInput(int TheInput) {
+    input = TheInput;
+};
+
+// int ticTacToe::getInput()
+// {
+// 	 if(input=='1'){
+//      row1.at(0)=teamMark;
+//     }
+//     else if(input=='2'){
+//       row1.at(1)=teamMark;
+//     }
+//     else if(input=='3'){
+//       row1.at(2)=teamMark;
+//     }
+//     else if(input=='4'){
+//      row2.at(0)=teamMark;
+//     }
+//     else if(input=='5'){
+//       row2.at(1)=teamMark;
+//     }
+//     else if(input=='6'){
+//       row2.at(2)=teamMark;
+//     }
+//     else if(input=='7'){
+//       row3.at(0)=teamMark;
+//     }
+//     else if(input=='8'){
+//       row3.at(1)=teamMark;
+//     }
+//     else if(input=='9'){
+//       row3.at(2)=teamMark;
+//     }
+
+// }
+void ticTacToe::SetTogglePlayer(int TheTogPlayer) {
+    TogglePlayer = TheTogPlayer;
+}
+// int ticTacToe::GetTogglePlayer(){
+//   if(teamMark=='X'){
+//     teamMark='O';
+//   }
+//   else{
+//     teamMark='X';
+//   }
+// }
+void ticTacToe::SetWin(char TheWin) {
+    win = TheWin;
+}
+char ticTacToe::GetWin() {
+    //Player 1
+    if (row1.at(0) == 'X' && row1.at(1) == 'X' && row1.at(2) == 'X') {
+        return 'X';
+    }
+    if (row2.at(0) == 'X' && row2.at(1) == 'X' && row2.at(2) == 'X') {
+        return 'X';
+    }
+    if (row3.at(0) == 'X' && row3.at(1) == 'X' && row3.at(2) == 'X') {
+        return 'X';
+    }
+
+    if (row1.at(0) == 'X' && row2.at(0) == 'X' && row3.at(0) == 'X') {
+        return 'X';
+    }
+    if (row1.at(1) == 'X' && row2.at(1) == 'X' && row3.at(1) == 'X') {
+        return 'X';
+    }
+    if (row1.at(2) == 'X' && row2.at(2) == 'X' && row3.at(2) == 'X') {
+        return 'X';
+    }
+
+    if (row1.at(0) == 'X' && row2.at(1) == 'X' && row3.at(2) == 'X') {
+        return 'X';
+    }
+    if (row3.at(0) == 'X' && row2.at(1) == 'X' && row1.at(2) == 'X') {
+        return 'X';
+    }
+    if (row1.at(0) == 'O' && row1.at(1) == 'O' && row1.at(2) == 'O') {
+        return 'O';
+    }
+    if (row2.at(0) == 'O' && row2.at(1) == 'O' && row2.at(2) == 'O') {
+        return 'O';
+    }
+    if (row3.at(0) == 'O' && row3.at(1) == 'O' && row3.at(2) == 'O') {
+        return 'O';
+    }
+
+    if (row1.at(0) == 'O' && row2.at(0) == 'O' && row3.at(0) == 'O') {
+        return 'O';
+    }
+    if (row1.at(1) == 'O' && row2.at(1) == 'O' && row3.at(1) == 'O') {
+        return 'O';
+    }
+    if (row1.at(2) == 'O' && row2.at(2) == 'O' && row3.at(2) == 'O') {
+        return 'O';
+    }
+
+    if (row1.at(0) == 'O' && row2.at(1) == 'O' && row3.at(2) == 'O') {
+        return 'X';
+    }
+    if (row3.at(0) == 'O' && row2.at(1) == 'O' && row1.at(2) == 'O') {
+        return 'O';
+    }
+    return '/';
+}
+void ticTacToe::Setrun(char therun) {
+    run = therun;
+}
+// char ticTacToe::Getrun(){
+// while(1){
+
+//     if( ticTacToe::win()== 'X'){
+//      cout<<"X wins!";
+//       break;
+//     }
+//     else if(ticTacToe::win()== 'O'){
+//       cout<<"O wins!";
+//       break;
+//     }
+//     else if (ticTacToe::win() != 'X' or 'O'){ 
+//       cout << "Its a tie!!" << endl;
+//       break; 
+//    }
+// }
+// }
+
+void ticTacToe::teamRunning(vector<Team> allTeamsHolder)
+{ 
+    //  vector <Player> team1;
+    //  vector<Team> totalTeams;
+    vector<Player> playerList; 
+    //  totalTeams = teams;
+    int rounds;
+    int displayRound = 1;
+    int point = 0;
+    int point2 = 0;
+    cout << "Welcome to TicTacToe" << endl;
+    cout << "How many rounds would you like to go for?" << endl;
+    cout << "(A new round will start after each team plays one game of TicTacToe)" << endl;
+    cin >> rounds;
+    cout << "The team with the most rounds won wins!" << endl;
+    while (rounds > 0)
+    {
+      //each turn
+        for (int i = 0; i < allTeamsHolder.size(); i++)
+        {
+            playerList = allTeamsHolder.at(i).getPlayers();
+            cout << "ROUND: " << displayRound << endl;
+            cout << "Team " << allTeamsHolder.at(i).getTeamID() << " is playing" << endl;
+            cout << "Team " << allTeamsHolder.at(i).getTeamID() << " contains: " << endl;
+            // printing the player whatever team
+            for (int k = 0; k < playerList.size(); k++)
+            {
+              cout << playerList.at(k).getFirstName() << " " << playerList.at(k).getLastName() << endl;
+            }
+
+            //code 
+        
+            // code 
+
+        }
+        rounds--;
+    }
+}

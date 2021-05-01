@@ -1,0 +1,5 @@
+//explanation text for teams file
+(1,phil,guerrero)(2,test,lname) = 1 line inputfile 
+Row in File = teamID
+number of ( ) pairings = SIZE OF /players// FOllowed by Players
+

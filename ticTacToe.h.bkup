@@ -1,0 +1,42 @@
+#pragma once
+#include "Game.h"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class ticTacToe : public Game
+{
+
+private:
+    char run;
+    char win;
+    int input;
+    char TogglePlayer;
+    //phil working here
+    char teamMark;
+    vector<char> row1;//0 1 2 //example//row1.at(0) = 'X'
+    vector<char> row2;//0 1 2 
+    vector<char> row3;//0 1 2
+// 
+  // X##
+  // ###
+  // ###
+
+  //if 9, row3.at(2) = teamMark;
+public:
+    //phil working here
+    void Setrun(char therun);
+    char Getrun();
+    void SetWin(char theWin);
+    char GetWin();
+    void SetTogglePlayer(int TheTogPlayer);
+    int GetTogglePlayer();
+    void setInput(int Theinput);
+    int getInput();
+    char getTeamMark();
+    void setTeamMark(char SettingMark);
+    vector<char>getRow;
+    ticTacToe();
+    void teamRunning(vector<Team> teamsOneTwo);
+
+};
